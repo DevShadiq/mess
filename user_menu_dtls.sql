@@ -9,7 +9,7 @@ SELECT c.pid AS oid,
           FROM user_group g
          WHERE g.id = b.pid_group)
           AS pid_group
-  FROM user_group a, user_menu b, menus c
+  FROM user_group a, user_menu b, t_menu c
  WHERE     b.pid_group = a.id
        AND (b.page_id = c.pid)
        AND (b.pid_group IS NULL OR b.pid_group = :p1000_user_group)

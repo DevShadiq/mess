@@ -11,7 +11,7 @@
                   'NO:' AS is_current,
                   NVL (icon_img, 'fa-list-ul') image,
                   PARENT_PID
-             FROM MENUS
+             FROM t_menu
             WHERE     status = 1
                   AND PID IN (SELECT PAGE_ID
                                 FROM USER_MENU
