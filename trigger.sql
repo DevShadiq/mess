@@ -60,3 +60,15 @@ BEGIN
    END IF;
 END trg_shop_exp_d_pk;
 /
+
+CREATE OR REPLACE TRIGGER trg_M_MEMBER_pk
+   BEFORE INSERT OR UPDATE
+   ON M_MEMBER
+   FOR EACH ROW
+BEGIN
+   IF :new.id IS NULL
+   THEN
+      SELECT NVL (MAX (id), 0) + 1 INTO :new.id FROM M_MEMBER;
+   END IF;
+END trg_M_MEMBER_pk;
+/
